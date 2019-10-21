@@ -2,20 +2,19 @@
 #include <stdlib.h>
 #include <Math.h>
 
-void hesapla(float taban, float uss)
-{
-        float sonuc=exp(uss*log(taban));
-        printf("Sonuc =%f \n\n",sonuc);
-}
+
+
+
+
 int main()
 {
     while(1){
-         float taban,uss;
+         float x,y;
          printf("Tabani giriniz: \n");
-         scanf("%f",&taban);
+         scanf("%f",&x);
          printf("ussu giriniz: \n");
-         scanf("%f",&uss);
-         hesapla(taban,uss);
+         scanf("%f",&y);
+         printf("Sonuc =%f \n\n",exp(y*log(x)));
          }
 
     return 0;
