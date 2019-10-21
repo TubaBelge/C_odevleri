@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <Math.h>
+
+void hesapla(float taban, float uss)
+{
+        float sonuc=exp(uss*log(taban));
+        printf("Sonuc =%f \n\n",sonuc);
+}
+int main()
+{
+    while(1){
+         float taban,uss;
+         printf("Tabani giriniz: \n");
+         scanf("%f",&taban);
+         printf("ussu giriniz: \n");
+         scanf("%f",&uss);
+         hesapla(taban,uss);
+         }
+
+    return 0;
+}
+
+
