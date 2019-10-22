@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+     float l;
+     float r;
+    float pay;
+    float sonuc;
+    int payda;
+
+
+   int x=9,y=10,z=11,a=1,b=2,c=3,d=4,e=5,f=6,g=7,h=8;
+
+l=1/(2*a*b);
+r=((c*d)+(e*f-g)/h);
+payda=x*(y+z);
+pay=(float)l-r;
+
+
+
+  printf("pay:%f\n",pay);
+printf("payda:%f\n",payda);
+sonuc=(float)pay/payda;
+printf("sonuc:%f",sonuc);
+
+
+
+}
