@@ -1,0 +1,46 @@
+#include <stdio.h>
+int main()
+{
+    char menitem[3][32], key, key2;
+    int i = 0;
+    int currentlySelectedItem = 1;
+    strcpy(menitem[0], "Option 1 [X]");
+    strcpy(menitem[1], "Option 2 [ ]");
+    strcpy(menitem[2], "Option 3 [ ]");
+    while(1)
+    {
+        system("cls");
+        printf("%s\n%s\n%s", menitem[0], menitem[1], menitem[2]);
+        key = getch();
+        key2 = 0;
+        if(key == -32)
+        {
+            key2 = getch();
+        }
+        else
+        {
+            continue;
+        }
+        if(key2 == 80)
+        {
+            currentlySelectedItem++;
+        }
+        else if(key2 == 72)
+        {
+            currentlySelectedItem--;
+        }
+
+        //make sure the selected item stays in range
+        if(currentlySelectedItem < 1)
+            currentlySelectedItem = 1;
+        if(currentlySelectedItem > 3)
+            currentlySelectedItem = 3;
+
+        menitem[0][10] = ' ';
+        menitem[1][10] = ' ';
+        menitem[2][10] = ' ';
+        menitem[currentlySelectedItem-1][10] = 'X';
+
+    }
+
+}
