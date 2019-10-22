@@ -1,0 +1,81 @@
+#include<windows.h>
+ #include<stdio.h>
+
+
+
+
+ COORD koordinat={0,0};
+  void gotoxy (int x, int y)
+  {
+
+
+
+  koordinat.X =x;
+  koordinat.Y =y;
+ SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),koordinat);
+  }
+
+     int main(){
+         for(int i=0;i<255;i++){
+            printf("%c\n",i);
+         }
+
+        int i,j;
+         int x,y;
+         int uz,yuk,gen;
+
+
+         printf("x koordinatini giriniz:");
+         scanf("%d",&x);
+         printf("y koordinatini giriniz:");
+         scanf("%d",&y);
+         printf("uzunlugu giriniz:");
+         scanf("%d",&uz);
+         printf("yuksekligi giriniz:");
+         scanf("%d",&yuk);
+         printf("genisligi giriniz:");
+         scanf("%d",&gen);
+        gen=x+gen;
+        yuk=y+yuk;
+
+
+         gotoxy(x,y);
+         printf("%c",218);
+
+
+         gotoxy(x+1,y);
+
+        for(int i=x+1;i<=gen;i++){
+        printf("%c",196);
+        }
+        gotoxy(x-gen,y);
+        printf("%c",191);
+        for(int j=0;j<=yuk;j++){
+            gotoxy(x,y+1);
+            printf("%c",179);
+
+            gotoxy(gen+1,y+1);
+            printf("%c",179);
+            /*veya y=y+1;*/
+            y++;
+            if(y>=yuk){
+                break;
+            }
+        }
+        gotoxy(x,y+1);
+        printf("%c",192);
+        gotoxy(gen+1,yuk+1);
+        printf("%c",217);
+         gotoxy(x+1,y+1);
+        for(int a=x+1;a<=gen;a++){
+
+        printf("%c",196);
+        }
+
+
+
+        }
+
+
+
+
