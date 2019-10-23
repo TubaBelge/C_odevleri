@@ -4,10 +4,10 @@
 #include <time.h>
 #include <stdlib.h>
 
-int saha[80][23]={0};
+int saha[120][30]={0};
 int kuyrukSutun[500];
 int kuyrukSatir[500];
-int maap[80][23]={0};
+int maap[120][30]={0};
 
 void gotoxy(short x, short y) {
 	HANDLE hConsoleOutput;
@@ -39,11 +39,11 @@ void cerceve(int x1, int y1, int x2, int y2,int tur)
 void ekrani_bas()
 {
     int x,y;
-    for(x=0;x<80;x++)
+    for(x=0;x<120;x++)
     {
 
 
-        for(y=0;y<23;y++)
+        for(y=0;y<30;y++)
         {
         gotoxy(x+1,y+1);
             if(saha[x][y]==1)
@@ -75,7 +75,7 @@ randomAta()
 void main()
 {
     randomAta();
-    cerceve(0,0,79,22,2);
+    cerceve(0,0,119,29,2);
     ekrani_bas();
     int sx=40,sy=12;
     int dy=0,dx=0;
@@ -83,3 +83,4 @@ void main()
     int a=0;
     int devam=0;
 }
+
