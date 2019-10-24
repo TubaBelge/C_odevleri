@@ -89,9 +89,11 @@ void main()
 
     int mermi=0;
     int devam=0;
+   int mermi=2;
+    int devam=0;
     do
     {
-        if(mermi<=yuk){
+        if(mermi<=yuk-1){
          gotoxy(50,mermi);
         printf(" ");
         mermi++;
@@ -100,11 +102,10 @@ void main()
         Sleep(70);
         }
         else{
-                gotoxy(50,30);
+                gotoxy(50,29);
         printf(" ");
 
         }
-
 
 
 
