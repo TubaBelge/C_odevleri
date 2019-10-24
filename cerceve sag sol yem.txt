@@ -6,6 +6,7 @@
 
 int saha[120][30]= {0};
 int k,l;
+int yuk=29;
 int kuyrukSutun[500];
 int kuyrukSatir[500];
 int maap[120][30]= {0};
@@ -85,9 +86,28 @@ void main()
     int dy=0,dx=0;
     unsigned char tus;
     int a=0;
+
+    int mermi=0;
     int devam=0;
     do
     {
+        if(mermi<=yuk){
+         gotoxy(50,mermi);
+        printf(" ");
+        mermi++;
+        gotoxy(50,mermi);
+        printf("A");
+        Sleep(70);
+        }
+        else{
+                gotoxy(50,30);
+        printf(" ");
+
+        }
+
+
+
+
         if(kbhit())
         {
             tus=getch();
@@ -107,27 +127,11 @@ void main()
                 }
             }
         }
-
-
-
-
-
         sx=sx+dx;
-
-
         if(sx>118)
             sx=2;
         if(sx<2)
             sx=118;
-            if(sx==k && sy==1){
-                randomAta();
-            }
-            gotoxy(k,l);
-            printf("A");
-            gotoxy(k,l+1);
-            printf(" ");
-            gotoxy(k+1,l+1);
-            printf("A");
         gotoxy(sx,sy);
         printf("*");
         Sleep(60);
@@ -136,8 +140,6 @@ void main()
     }
     while(1);
 }
-
-
 
 
 
