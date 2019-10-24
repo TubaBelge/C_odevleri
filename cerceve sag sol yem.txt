@@ -87,8 +87,7 @@ void main()
     unsigned char tus;
     int a=0;
 
-    int mermi=0;
-    int devam=0;
+   
    int mermi=2;
     int devam=0;
     do
