@@ -1,0 +1,225 @@
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+#include <time.h>
+#include <stdlib.h>
+
+int i;
+long int dongu=0;
+int random=0;
+int bombalar=5;
+int yukseklik=30;
+int genislik=120;
+int puan=0;
+int uyma_miktari=50;
+int mermix[20]= {0};
+int mermiy[20]= {0};
+int yemx[5]= {0};
+int yemy[5]= {0};
+int kuyrukSutun[500];
+int kuyrukSatir[500];
+
+
+void main()
+{
+    int sx=50,sy;
+    int dy=0,dx=0;
+    unsigned char tiklama;
+    int a=5;
+
+    int devam=0;
+    int bekelemeZamani=5;
+    while(1)
+    {
+        if(kbhit())
+        {
+            tiklama=getch();
+            if(tiklama==224)
+            {
+                tiklama=getch();
+                switch(tiklama)
+                {
+
+                case 77:
+                    dx=1;
+                    dy=0;
+                    break;
+                case 75:
+                    dx=-1;
+                    dy=0;
+                    break;
+                case 80:
+                    mermiUret(sx);
+                    break;
+                }
+            }
+        }
+        sx=sx+dx;
+        gotoxy(kuyrukSutun[0],kuyrukSatir[0]);
+        printf(" ");
+        sy=yukseklik-1;
+        if(sx>genislik-4)
+            sx=2;
+        if(sx<2)
+            sx=genislik-4;
+        kuyrukSutun[0]=sx;
+        kuyrukSatir[0]=sy;
+        gotoxy(kuyrukSutun[0],kuyrukSatir[0]);
+        printf("A");
+        if(dongu%10==0)
+        {
+            system("cls");
+            for(int j=0; j<bombalar; j++)
+            {
+                if(yemx[j]>0)
+                {
+                    if(yemy[j]>=yukseklik)
+                    {
+                        yemy[j]=0;
+                        yemx[j]=0;
+                        puan-=1;
+                    }
+                    else
+                    {
+                        switch(j)
+                        {
+                        case 0:
+                          printf("\033[0;36m");
+                            break;
+                        case 1:
+                              printf("\033[0;34m");
+                            break;
+                        case 2:
+                           printf("\033[0;33m");
+                            break;
+                        case 3:
+
+                            printf("\033[0;32m");
+                            break;
+                        case 4:
+                             printf("\033[0;35m");
+                            break;
+                        default :
+                            printf("\033[0m");
+                            break;
+                        }
+                        gotoxy(yemx[j],yemy[j]);
+                        printf("@");
+                        printf("\033[0m");
+                        yemy[j]++;
+                    }
+                }
+            }
+        }
+
+         if(dongu%bekelemeZamani==0)
+        {
+            random=50+rand()%150;
+            bekelemeZamani=abs(random);
+            yemUret();
+        }
+        int donguBitir=0;
+        for(int i=0; i<20; i++)
+        {
+            if(mermiy[i]>0)
+            {
+                for(int k=0; k<bombalar; k++)
+                {
+                    if(mermix[i]==yemx[k])
+                    {
+                        if(mermiy[i]==yemy[k])
+                        {
+                             donguBitir=1;
+                            yemy[k]=0;
+                            yemx[k]=0;
+                            mermix[i]=0;
+                            mermiy[i]=0;
+                            puan+=1;
+                        }
+                    }
+                    if(donguBitir==1)
+                        break;
+                }
+            }
+            dongu++;
+        }
+        for( i=0; i<20; i++)
+        {
+            if(mermix[i]>0)
+            {
+                gotoxy(mermix[i],mermiy[i]);
+                printf(" ");
+                mermiy[i]-=1;
+                gotoxy(mermix[i],mermiy[i]);
+                printf(".");
+            }
+            if(mermiy[i]==1)
+            {
+                gotoxy(mermix[i],mermiy[i]);
+                mermix[i]=0;
+                mermiy[i]=0;
+            }
+        }
+        gotoxy(2,2);
+        printf("Puanýnýz :%d",puan);
+        for(i=a; i>0; i--)
+        {
+            kuyrukSutun[i]=kuyrukSutun[i-1];
+            kuyrukSatir[i]=kuyrukSatir[i-1];
+        }
+        if(puan<100)
+        {
+            uyma_miktari=70;
+        }else if(puan<200){
+            uyma_miktari=50;
+        }else if(puan<300){
+         uyma_miktari=30;
+        }
+        if(puan<0||puan>=500)
+            break;
+    Sleep(uyma_miktari);
+    }
+    system("cls");
+    gotoxy(1,1);
+    if(puan>0)
+    {
+       printf("Kazandiniz   Puaniniz=%d",puan);
+    }
+    else
+    {
+        printf("kaybetiniz oyunu    Puaniniz =%d ",puan);
+    }
+    Sleep(400);
+
+}
+
+void gotoxy(int x, int y)
+{
+    COORD Cursor_Pos = {x-1, y-1};
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cursor_Pos);
+}
+yemUret()
+{
+    for(int i=0; i<bombalar; i++)
+    {
+        if(yemx[i]==0)
+        {
+            random=abs(1+rand()%98);
+            yemx[i]=abs(random);
+            yemy[i]=2;
+            break;
+        }
+    }
+}
+void mermiUret(int kordi)
+{
+    for(int i=0; i<50; i++)
+    {
+        if(mermix[i]==0)
+        {
+            mermix[i]=kordi;
+            mermiy[i]=yukseklik-2;
+            break;
+        }
+    }
+}
