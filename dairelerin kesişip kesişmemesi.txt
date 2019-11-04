@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float topycap,uzunluk;
+    float ycap1,ycap2;
+    float x1,x2,y1,y2;
+    printf("daire1 ve daire2'nin yaricaplarini giriniz: \n");
+    scanf("%f%f",&ycap1,&ycap2);
+    printf("daire1'in koordinatlarini giriniz:\n");
+    scanf("%f%f",&x1,&y1);
+    printf("daire2'nin koordinatlarini giriniz:");
+    scanf("%f%f",&x2,&y2);
+    uzunluk=sqrt(pow((x1-x2),2)+pow((y1-y2),2));
+
+    topycap=ycap1+ycap2;
+    if(uzunluk==topycap)
+    {
+        printf("daireler birbirlerine teget olurlar\n");
+
+    }
+    else if(uzunluk>topycap)
+    {
+        printf("daireler kesismezler\n");
+    }
+    else
+    {
+        printf("daireler kesisir");
+    }
+
+
+
+
+
+}
