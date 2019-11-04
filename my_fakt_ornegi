@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+
+int main()
+{
+    while(1)
+    {
+        int sayi_1=0;
+        
+        printf("bir sayi gitiniz:\n");
+        
+        
+        scanf("%d",&sayi_1);
+
+        float sonuc=my_fact(sayi_1);
+        
+        
+        printf("sonuc:%f \n",sonuc);
+    }
+
+
+
+    return 0;
+}
+
+
+
+
+int my_fact(int sayiii)
+{
+    int fact=1;
+
+    for(int i=1; i<=sayiii; i++)
+    {
+        fact=fact*i;
+    }
+    return (fact);
+
+}
