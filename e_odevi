@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float my_pow(float taban,int us);
+
+
+int main()
+{
+
+        int x=0;
+        int dongu_sayisi=1;
+
+
+
+        printf("sayi girinz:\n");
+        scanf("%f",&x);
+     printf("dongu sayisi giriniz:\n");
+        scanf("%f",&dongu_sayisi);
+
+
+
+        float sonuc=1;
+
+        sonuc=1+x;
+
+
+        for(int i=2; i<=dongu_sayisi; i++)
+        {
+
+
+
+            float pow_sonucu=my_pow(x,i);
+
+
+            float fact_sonucu=my_fact(i);
+
+            sonuc=sonuc+(pow_sonucu/fact_sonucu);
+
+        }
+
+        printf("%f",sonuc);
+
+
+    return 0;
+}
+
+
+
+float my_pow(float taban,int us)
+{
+    float sonuc=1;
+
+    for(int i=1; i<=us; i++)
+    {
+        sonuc=sonuc*taban;
+    }
+    return sonuc;
+}
+
+
+
+int my_fact(int sayiii)
+{
+    int fact=1;
+
+    for(int i=1; i<=sayiii; i++)
+    {
+        fact=fact*i;
+    }
+    return (fact);
+
+}
+
+
+
+
+
