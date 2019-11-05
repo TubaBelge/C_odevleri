@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+int main()
+{
+    int adet=0,a=1;
+   int random_say;
+   srand(time(NULL));
+   while(a<10){
+
+   random_say=rand()%25;
+   for(int i=2;i<=random_say;i++){
+    if(random_say%i==0){
+            adet++;
+
+    }
+      if(adet==2){
+    printf("asal sayilar:%d\n");
+   }
+
+   }
+   }
+
+    return 0;
+}
