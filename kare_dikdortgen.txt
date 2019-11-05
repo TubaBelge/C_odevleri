@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{    while(1){
+    float ucgen_alan=0,diktortgen_alan=0;
+    float x1,x2,y1,y2;
+    printf("ucgenin x ve y koordinatlarýni giriniz:\n");
+    scanf("%f\n%f",&x1,&y1);
+    ucgen_alan=(x1*y1)/2;
+    printf("diktortgenin x ve y koordinatlarini giriniz:\n");
+    scanf("%f\n%f",&x2,&y2);
+    diktortgen_alan=x2*y2;
+    if(diktortgen_alan>ucgen_alan){
+        printf("diktortgenin x ve y koordinatlarini daha kucuk giriniz:\n");
+
+    }
+    else if(diktortgen_alan<ucgen_alan){
+        printf("dikdortgenin x ve y koordinatlarini daha buyuk giriniz:\n");
+
+    }
+    else{
+        printf("dikdortgenin max alani:%f",diktortgen_alan);
+    }
+
+
+}
+
+    return 0;
+}
