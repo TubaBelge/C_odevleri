@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dongu=0,rastgele=0,toplam=0,ortalama=0;
+    printf("dongu sayisini giriniz:");
+     scanf("%d",&dongu);
+     srand(time(NULL));
+     for(int i=1;i<=dongu;i++){
+        rastgele=5+rand()%25;
+        toplam=toplam+rastgele;
+        printf("%d\n",rastgele);
+
+
+
+
+     }
+     ortalama=toplam/dongu;
+     printf("ortalama:%d",ortalama);
+
+
+    return 0;
+}
