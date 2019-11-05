@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dongu,adet=0,rastgele;
+    printf("dongo sayisini giriiniz:");
+    scanf("%d",&dongu);
+    srand(time(NULL));
+
+    for(int i=1;i<=dongu;i++){
+        rastgele=rand()%20;
+        printf("random:%d\n",rastgele);
+        for(int a=1;a<=rastgele;a++){
+                if(rastgele%a==0){
+                  adet++;
+
+                }
+
+
+        }
+        if(adet==2){
+                    printf("%d asal sayidir\n",rastgele);
+    }
+    return 0;
+}
+}
