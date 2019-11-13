@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+
+
+
+
+struct ogrenci{
+int no;
+char ad[50];
+char soyad[50];
+int vize;
+int fnl;
+};
+
+int main()
+{
+    float ortalama=0;
+   struct ogrenci o;
+   printf("öğrenci numarasi yazınız\n");
+   scanf("%d",&o.no);
+   printf("ogrencinin adini giriniz:\n");
+   scanf("%s",&o.ad);
+   printf("orencini soyadini giriniz:\n");
+   scanf("%s",&o.soyad);
+   printf("ogrencinin vize notunu giriniz:\n");
+   scanf("%d",&o.vize);
+   printf("ogrencinin final notunu giriniz:\n ");
+   scanf("%d",&o.fnl);
+   ortalama=o.vize*40/100+o.fnl*60/100;
+   printf("ortalama:%.3f",ortalama);
+
+    return 0;
+}
+
+
