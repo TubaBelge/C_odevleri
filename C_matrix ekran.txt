@@ -1,0 +1,83 @@
+#include <stdlib.h>
+#include <time.h>
+
+#include <windows.h>
+
+#define GEN  240
+#define YUK  160
+
+#define idx(x, y) ((x)+GEN*(y))
+
+struct trail {
+	float start;
+	float end;
+	float speed;
+} trails[GEN];
+
+void init_trail(struct trail *trail)
+{
+	trail->start = -(float)(rand() % YUK);
+	trail->end = 0;
+	trail->speed = (rand() % 5) / 10.0f + 0.2f;
+}
+
+void update(CHAR_INFO consoleBuffer[])
+{
+	CHAR_INFO space = {.Char.AsciiChar=' ', .Attributes=0};
+
+	for (int x = 0; x < GEN; x++) {
+		for (int y = 0; y < YUK; y++)
+			consoleBuffer[idx(x, y)] = space;
+
+		int start = trails[x].start < 0 ? 0 : (int)trails[x].start;
+		int end = trails[x].end > YUK ? YUK : (int)trails[x].end;
+
+		for (int y = start; y < end; y++)
+			consoleBuffer[idx(x, y)] = (CHAR_INFO) {
+			.Char.AsciiChar = rand() % 256,
+			.Attributes = FOREGROUND_GREEN |
+			(y < (int)trails[x].end-1 ? 0 :
+			FOREGROUND_RED | FOREGROUND_BLUE)};
+
+		trails[x].start += trails[x].speed;
+		trails[x].end += trails[x].speed;
+
+		if (trails[x].start >= YUK)
+			init_trail(&trails[x]);
+	}
+}
+
+int main(void)
+{
+	srand((unsigned)time(NULL));
+
+	/* Console window */
+	HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	SMALL_RECT windowSize = {0, 0, GEN-1, YUK-1};
+	SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
+
+	COORD bufferSize = {GEN, YUK};
+	SetConsoleScreenBufferSize(wHnd, bufferSize);
+
+	CHAR_INFO consoleBuffer[GEN * YUK];
+	COORD charBufSize = {GEN, YUK};
+	COORD characterPos = {0, 0};
+	SMALL_RECT writeArea = {0, 0, GEN-1, YUK-1};
+
+	SetConsoleTitle(TEXT("Enter the Matrix"));
+
+	/* Trails */
+	for (int i = 0; i < GEN; i++)
+		init_trail(&trails[i]);
+
+	/* Matrix */
+	for (;;) {
+		update(consoleBuffer);
+		WriteConsoleOutputA(wHnd, consoleBuffer,
+				charBufSize, characterPos, &writeArea);
+		Sleep(14);
+	}
+
+	return 0;
+}
