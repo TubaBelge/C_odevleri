@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int buyuk=0;
+    int sayi=0;
+    int kalan;
+    printf("lutfen bir sayi giriniz:");
+    scanf("%d",&sayi);
+    while(sayi>0){
+        kalan=sayi%10;
+        if(kalan>buyuk){
+            buyuk=kalan;
+        }
+        sayi=sayi/10;
+
+
+  }
+       printf("enbuyuk:%d",buyuk);
+
+
+
+}
