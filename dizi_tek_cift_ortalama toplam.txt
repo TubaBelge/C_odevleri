@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dizi[30];
+    int sayi=0,tektop=0,cifttop=0,tekort=0,ciftort=0,tadet=0,cadet=0;
+    printf("dizimiz kac elemanli olsun:");
+    scanf("%d",&sayi);
+    for(int i=0;i<=sayi;i++){
+        printf("%d.elemani giriniz:",i);
+        scanf("%d",&dizi[i]);
+        if(dizi[i]%2==0){
+                cifttop=cifttop+dizi[i];
+                cadet++;
+
+        }
+        else{
+            tektop=tektop+dizi[i];
+            tadet++;
+        }
+
+
+    }
+    ciftort=cifttop/cadet;
+    tekort=cifttop/tadet;
+
+    printf("ciftlerin toplami:%d\n",cifttop);
+    printf("teklerin toplami:%d\n",tektop);
+    printf("ciftlerin sayilarin ortalamasi:%d\n",ciftort);
+    printf("teklerin sayilarin ortalamasi:%d",tekort);
+
+
+
+}
