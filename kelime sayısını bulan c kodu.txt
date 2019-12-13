@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int main()
+{
+   char dizi[100];
+   gets(dizi);
+   int kelime=1;
+   for(int i=0;dizi[i]!='\0';i++){
+    if(dizi[i]==' '){//kelime sayisini bosluklar ile buluyoruz 
+        kelime++;
+
+    }
+   }
+   printf("kelime sayisi:%d",kelime);
+   getch();
+}
