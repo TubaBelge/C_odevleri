@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+int asal(int sayi){
+for(int i=2;i<sayi;i++){
+    if(sayi%i==0){
+            return 0;
+
+
+    }
+
+}
+return 1;
+
+}
+
+
+int main()
+{
+    int say;
+    printf("bir sayi giriniz:");
+    scanf("%d",&say);
+    if(asal(say)==0){
+        printf("sayimiz asal sayi degil");
+
+    }
+    else{
+        printf("sayimiz asal sayidir");
+    }
+
+
+
+}
