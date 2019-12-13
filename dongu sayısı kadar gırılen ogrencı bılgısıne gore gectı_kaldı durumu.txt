@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{int dongu,numara;
+ float vize,fnl,ort;
+char ad[30],soyad[30],durum1[30]="gecti",durum2[30]="kaldi";
+    printf("dongu sayisini giriniz:");
+    scanf("%d",&dongu);
+    for(int i=0;i<dongu;i++){
+        printf("ogrencinin adini giriniz:\n");
+        scanf("%s",&ad);
+        printf("ogrencinin soyadini giriniz:\n");
+        scanf("%s",&soyad);
+        printf("ogrencinin numarasini giriniz:\n");
+        scanf("%d",&numara);
+        printf("ogrencinin vize notunu giriniz:\n");
+        scanf("%f",&vize);
+        printf("ogrencinin final notunu giriniz:\n");
+        scanf("%f",&fnl);
+        ort=vize*0.4+fnl*0.6;
+        if(ort>=60){
+
+            printf("ortalama:%f , ogrenci dersi %s\n",ort,durum1);
+
+        }
+        else{
+
+            printf("ortalama:%f , ogrenci dersten %s\n",ort,durum2);
+        }
+
+    }
+
+}
