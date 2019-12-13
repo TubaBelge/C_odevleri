@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    int islem,miktar;
+    int bakiye=1000;
+    printf("1 islemi para cekme\n2 islemi para yatirma\n3 islemi kartiade");
+    printf("yapacaginiz islemi seciniz:\n");
+    scanf("%d",&islem);
+    if(islem==1){
+
+        printf("cekeceginiz miktari giriniz:");
+        scanf("%d",&miktar);
+    if(miktar>bakiye){
+        printf("bakiyeniz yetersiz...");
+    }
+    else{
+
+
+        bakiye=bakiye-miktar;
+        printf("bakiyenizde kalan para:%d",bakiye);
+    }
+
+    }
+    if(islem==2){
+        printf("yatiracaginiz miktari giriniz:");
+        scanf("%d",&miktar);
+        bakiye=bakiye+miktar;
+        printf("yeni bakiyeniz:%d",bakiye);
+
+    }
+    if(islem==3){
+            printf("cikis yapiliyor...");
+
+    }
+
+
+
+
+}
