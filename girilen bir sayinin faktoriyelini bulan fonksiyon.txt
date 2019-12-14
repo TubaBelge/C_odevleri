@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<conio.h>
+void faktoriyel(int sayi)//fonksiyonumuzu void sekýlde tanýmladýk cunku:
+// gerýye herhangi birsey dondurmeyecegýz sadece ekrana býrsey yazacagý
+
+{
+    int sonuc=1;//sonucumuza bir ilk deger atamadýgýmýz zaman hat ile karsýlasýyoruz
+    for(int i=1;i<=sayi;i++){
+        sonuc*=i;
+    }
+     printf("faktoriyelin sonucu:%d",sonuc);
+
+
+}
+
+
+int main()
+{
+    int say=1;
+    printf("bir sayi giriniz:");
+    scanf("%d",&say);
+    faktoriyel(say);
+    getch();
+return(0);
+}
