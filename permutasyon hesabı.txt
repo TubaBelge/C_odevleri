@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a,b,c,pay=1,payda=1;
+    float sonuc;
+    printf("....a'nin b'li permutasyonu....\n");//sýralamadýr permutasyon bu yuzden n in r li si dedýgýmýz zaman n>r den olmalý
+    printf("a ve b degerlerini giriniz a degeri b den buyuk olsun:");//ornek 4 elmayý 5 li þekilde sýralayýn dýyemeyýz cunku 4 tane elma var
+    scanf("%d %d",&a,&b);
+    c=a-b;
+    for(int i=1;i<=a;i++){
+            pay*=i;
+
+    }
+    for(int j=1;j<=c;j++){
+        payda*=j;
+    }
+    sonuc=pay/payda;
+    printf("sonuc:%f",sonuc);
+
+
+
+}
