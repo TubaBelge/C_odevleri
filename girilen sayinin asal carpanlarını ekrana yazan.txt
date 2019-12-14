@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int main()
+{
+    int sayi;
+    printf("bir sayi giriniz:");
+    scanf("%d",&sayi);
+    for(int i=2;sayi>1;i++){//sayýmýz 1 olmadýgý surece dongu donsun
+
+            while(sayi%i==0){//sayimizi i degerine bol bolunuyorsa ekrana bastýr
+                printf("%d\t",i);
+                sayi=sayi/i;//en son sayýmýzý i degeri ile bolelim
+            }
+
+    }
+
+}
+/*sayi  i   sayi
+  12  / 2  = 6
+   6 /  2  =3
+  3 /   3  =1(sayimiz 1 oldu dongu bitt asal carpanlar (i degerleri) 2 2 3 oldu)
+*/
+
+
