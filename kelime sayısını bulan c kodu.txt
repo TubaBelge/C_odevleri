@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 
 int main()
-{
-   char dizi[100];
-   gets(dizi);
-   int kelime=1;
-   for(int i=0;dizi[i]!='\0';i++){
-    if(dizi[i]==' '){//kelime sayisini bosluklar ile buluyoruz 
+{char dizi[100];// char dizisi olusturduk 100 karakteri barindırabılecek kapasıteye getirdik
+gets(dizi);//yazdigimiz metni diziye attik
+int kelime=1;//kelime degiskeni olusturup baslangıc olarak 1 degerini atadık 
+for(int i=0;dizi[i]!='\0';i++){// kelimelerimizi kelimenin sonuna gelene kadar harf harf okuduk butun kelımerı boyle okuduk
+    if(dizi[i]==' '){//okudugumuz kelımenın sonuda bosluk varsa kelımeyı arttırdık baska kelıme varsa devam sonra tekrar bosluk varsa arttırdık
         kelime++;
-
     }
-   }
-   printf("kelime sayisi:%d",kelime);
-   getch();
+}
+printf("kelime sayisi:%d",kelime);//en son kelimeler bitince yani dongu bitince bosluga gore buldugumuz kelıme sayısını yazdırdık
 }
